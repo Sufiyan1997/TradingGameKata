@@ -89,4 +89,14 @@ public class PlayerTest {
         player.reduceHealth(5);
         assertEquals(player.getHealth()+5, initialHealth);
     }
+
+    @Test
+    public void hasLostTest() {
+        List<Integer> initialDeck = new ArrayList<Integer>(Arrays.asList(0,0,1,1,2,2,2,3,3,3,3,4,4,4,5,5,6,6,7,8));
+        List<Integer> initialHand = new ArrayList<Integer>(Arrays.asList(1,2,3,4,5));
+        Player player = new Player(0, 0, 0, "abc", initialDeck, initialHand);
+        assertTrue(player.hasLost());
+        player.reduceHealth(1);
+        assertTrue(player.hasLost());
+    }
 }

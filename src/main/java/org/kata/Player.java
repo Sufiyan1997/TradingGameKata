@@ -81,4 +81,8 @@ public class Player {
     public void reduceHealth(int reduction) {
         health -= reduction;
     }
+
+    public boolean hasLost() {
+        return false;
+    }
 }
