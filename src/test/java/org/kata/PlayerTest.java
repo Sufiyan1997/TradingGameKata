@@ -131,4 +131,21 @@ public class PlayerTest {
         Player player = new Player(1, 3, 30, "abc", initialDeck, initialHand);
         assertFalse(player.canPlayMove(2));
     }
+
+    @Test
+    public void performMoveTest() {
+        List<Integer> initialDeck = new ArrayList<Integer>(Arrays.asList(0,0,1,1,2,2,2,3,3,3,3,4,4,4,5,5,6,6,7,8));
+        List<Integer> initialHand = new ArrayList<Integer>(Arrays.asList(0,1,2));
+
+        Player player = new Player(3, 3, 30, "abc", initialDeck, initialHand);
+        int initialMana = player.getMana();
+
+        Player opponent = new Player("def");
+        int opponentInitialHealth = opponent.getHealth();
+
+        player.performMove(2, opponent);
+
+        assertEquals(player.getMana(), initialMana - 2);
+        assertEquals(opponent.getHealth(), opponentInitialHealth - 2);
+    }
 }

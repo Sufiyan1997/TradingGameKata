@@ -107,4 +107,8 @@ public class Player {
 
         return hand.contains(move) && mana >= move;
     }
+
+    public void performMove(int card, Player opponent) {
+
+    }
 }
