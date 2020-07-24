@@ -73,6 +73,8 @@ public class Player {
     }
 
     public void initializeTurn() {
-
+        manaSlots++;
+        mana = manaSlots;
+        drawCard();
     }
 }
