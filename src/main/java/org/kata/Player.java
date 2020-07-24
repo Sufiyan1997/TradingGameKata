@@ -79,6 +79,6 @@ public class Player {
     }
 
     public void reduceHealth(int reduction) {
-
+        health -= reduction;
     }
 }
