@@ -68,4 +68,17 @@ public class PlayerTest {
         player.pickInitialHand();
         assertEquals(player.getHand().size(), 3);
     }
+
+    @Test
+    public void initializeTurnTest() {
+        Player player = new Player("abc");
+        int initialHandSize = player.getHand().size();
+        int initialManaSlots = player.getManaSlots();
+
+        player.initializeTurn();
+
+        assertEquals(player.getManaSlots(), initialManaSlots+1);
+        assertEquals(player.getMana(), player.getManaSlots());
+        assertEquals(player.getHand().size(), initialHandSize + 1);
+    }
 }

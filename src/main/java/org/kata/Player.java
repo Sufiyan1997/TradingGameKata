@@ -71,4 +71,8 @@ public class Player {
     public void pickInitialHand() {
         for (int i = 0; i < 3; ++i) drawCard();
     }
+
+    public void initializeTurn() {
+
+    }
 }
