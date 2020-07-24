@@ -3,6 +3,7 @@ package org.kata;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Random;
 
 public class Player {
     int mana;
@@ -11,6 +12,8 @@ public class Player {
     String name;
     List<Integer> deck;
     List<Integer> hand;
+
+    private static final Random random = new Random();
 
     public Player(String name) {
         this(0, 0, 30, name, new ArrayList<Integer>(Arrays.asList(0,0,1,1,2,2,2,3,3,3,3,4,4,4,5,5,6,6,7,8)), new ArrayList<Integer>());
@@ -57,6 +60,11 @@ public class Player {
     }
 
     public boolean drawCard() {
-        return false;
+        if (!canDrawCard()) {
+            return false;
+        }
+        int index = random.nextInt(deck.size());
+        hand.add(deck.remove(index));
+        return true;
     }
 }
