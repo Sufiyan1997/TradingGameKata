@@ -101,6 +101,10 @@ public class Player {
     }
 
     public boolean canPlayMove(int move) {
-        return true;
+        if (!canPlayAnyMove()) {
+            return false;
+        }
+
+        return hand.contains(move);
     }
 }
