@@ -50,6 +50,6 @@ public class Player {
     }
 
     public boolean canDrawCard() {
-        return true;
+        return hand.size() != 5;
     }
 }
