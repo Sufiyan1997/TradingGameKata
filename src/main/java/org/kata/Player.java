@@ -99,4 +99,8 @@ public class Player {
 
         return false;
     }
+
+    public boolean canPlayMove(int move) {
+        return true;
+    }
 }
