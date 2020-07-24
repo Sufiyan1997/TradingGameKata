@@ -85,4 +85,8 @@ public class Player {
     public boolean hasLost() {
         return health <= 0;
     }
+
+    public boolean canPlayAnyMove() {
+        return true;
+    }
 }
