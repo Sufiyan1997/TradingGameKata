@@ -10,13 +10,19 @@ public class Player {
     int health;
     String name;
     List<Integer> deck;
+    List<Integer> hand;
 
     public Player(String name) {
-        this.mana = 0;
-        this.manaSlots = 0;
-        this.health = 30;
+        this(0, 0, 30, name, new ArrayList<Integer>(Arrays.asList(0,0,1,1,2,2,2,3,3,3,3,4,4,4,5,5,6,6,7,8)), new ArrayList<Integer>());
+    }
+
+    public Player(int mana, int manaSlots, int health, String name, List<Integer> deck, List<Integer> hand) {
+        this.mana = mana;
+        this.manaSlots = manaSlots;
+        this.health = health;
         this.name = name;
-        this.deck = new ArrayList<Integer>(Arrays.asList(0,0,1,1,2,2,2,3,3,3,3,4,4,4,5,5,6,6,7,8));
+        this.deck = deck;
+        this.hand = hand;
     }
 
     public String getName() {
@@ -37,5 +43,13 @@ public class Player {
 
     public List<Integer> getDeck() {
         return deck;
+    }
+
+    public List<Integer> getHand() {
+        return hand;
+    }
+
+    public boolean canDrawCard() {
+        return true;
     }
 }
