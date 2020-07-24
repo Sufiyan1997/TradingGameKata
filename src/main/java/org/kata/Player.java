@@ -109,6 +109,9 @@ public class Player {
     }
 
     public void performMove(int card, Player opponent) {
-
+        if (!canPlayMove(card)) return;
+        mana -= card;
+        hand.remove(Integer.valueOf(card));
+        opponent.reduceHealth(card);
     }
 }
