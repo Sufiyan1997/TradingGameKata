@@ -105,6 +105,6 @@ public class Player {
             return false;
         }
 
-        return hand.contains(move);
+        return hand.contains(move) && mana >= move;
     }
 }
