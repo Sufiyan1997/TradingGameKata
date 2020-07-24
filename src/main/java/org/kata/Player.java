@@ -77,4 +77,8 @@ public class Player {
         mana = manaSlots;
         drawCard();
     }
+
+    public void reduceHealth(int reduction) {
+
+    }
 }

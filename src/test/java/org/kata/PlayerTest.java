@@ -81,4 +81,12 @@ public class PlayerTest {
         assertEquals(player.getMana(), player.getManaSlots());
         assertEquals(player.getHand().size(), initialHandSize + 1);
     }
+
+    @Test
+    public void reduceHealthTest() {
+        Player player = new Player("abc");
+        int initialHealth = player.getHealth();
+        player.reduceHealth(5);
+        assertEquals(player.getHealth()+5, initialHealth);
+    }
 }
