@@ -87,6 +87,6 @@ public class Player {
     }
 
     public boolean canPlayAnyMove() {
-        return true;
+        return hand.size() > 0;
     }
 }
