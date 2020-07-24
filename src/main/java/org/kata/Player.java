@@ -87,6 +87,16 @@ public class Player {
     }
 
     public boolean canPlayAnyMove() {
-        return hand.size() > 0;
+        if(hand.isEmpty()) {
+            return false;
+        }
+
+        for (int c : hand) {
+            if (c <= mana) {
+                return true;
+            }
+        }
+
+        return false;
     }
 }
