@@ -61,4 +61,11 @@ public class PlayerTest {
 
         assertTrue(initialDeck.equals(player.getDeck()));
     }
+
+    @Test
+    public void pickInitialHandTest() {
+        Player player = new Player("abc");
+        player.pickInitialHand();
+        assertEquals(player.getHand().size(), 3);
+    }
 }

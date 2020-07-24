@@ -67,4 +67,8 @@ public class Player {
         hand.add(deck.remove(index));
         return true;
     }
+
+    public void pickInitialHand() {
+
+    }
 }
