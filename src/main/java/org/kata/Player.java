@@ -50,6 +50,9 @@ public class Player {
     }
 
     public boolean canDrawCard() {
-        return hand.size() != 5;
+        if (hand.size() == 5 || deck.isEmpty()) {
+            return false;
+        }
+        return true;
     }
 }
