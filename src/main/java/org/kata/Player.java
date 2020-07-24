@@ -83,6 +83,6 @@ public class Player {
     }
 
     public boolean hasLost() {
-        return false;
+        return health <= 0;
     }
 }
