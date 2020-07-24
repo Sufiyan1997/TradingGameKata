@@ -55,4 +55,8 @@ public class Player {
         }
         return true;
     }
+
+    public boolean drawCard() {
+        return false;
+    }
 }

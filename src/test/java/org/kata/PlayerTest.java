@@ -4,6 +4,7 @@ import org.junit.Test;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -43,5 +44,21 @@ public class PlayerTest {
         List<Integer> initialHand = new ArrayList<Integer>(new ArrayList<Integer>());
         Player player = new Player(0, 0, 30, "abc", initialDeck, initialHand);
         assertTrue(player.canDrawCard());
+    }
+
+    @Test
+    public void drawCardTest() {
+        Player player = new Player("abc");
+        player.drawCard();
+
+        assertEquals(player.getHand().size(), 1);
+        assertEquals(player.getDeck().size(), 19);
+
+        List<Integer> initialDeck = new ArrayList<Integer>(Arrays.asList(0,0,1,1,2,2,2,3,3,3,3,4,4,4,5,5,6,6,7,8));
+        int drawnCard = player.getHand().get(0);
+        player.getDeck().add(drawnCard);
+        Collections.sort(player.getDeck());
+
+        assertTrue(initialDeck.equals(player.getDeck()));
     }
 }
