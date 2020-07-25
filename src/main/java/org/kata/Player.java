@@ -114,4 +114,8 @@ public class Player {
         hand.remove(Integer.valueOf(card));
         opponent.reduceHealth(card);
     }
+
+    public String getStatus() {
+        return "";
+    }
 }

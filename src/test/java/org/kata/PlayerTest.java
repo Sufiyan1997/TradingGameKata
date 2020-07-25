@@ -148,4 +148,10 @@ public class PlayerTest {
         assertEquals(player.getMana(), initialMana - 2);
         assertEquals(opponent.getHealth(), opponentInitialHealth - 2);
     }
+
+    @Test
+    public void playerStatusTest() {
+        Player p = new Player("abc");
+        assertEquals(p.getStatus(),"Name : abc\nAvailable Mana : 0\nManaslots : 0\nhealth : 30\nHand:[]");
+    }
 }
