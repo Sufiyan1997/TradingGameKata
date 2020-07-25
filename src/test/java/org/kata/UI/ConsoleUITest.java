@@ -2,9 +2,12 @@ package org.kata.UI;
 
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Test;
 
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
+
+import static org.junit.Assert.assertEquals;
 
 public class ConsoleUITest {
     private PrintStream sysOut;
@@ -20,5 +23,12 @@ public class ConsoleUITest {
     @After
     public void tearDown() throws Exception {
         System.setOut(sysOut);
+    }
+
+    @Test
+    public void messageTest() {
+        UI ui = new ConsoleUI();
+        ui.message("abc");
+        assertEquals(baos.toString(), "abc\n");
     }
 }
