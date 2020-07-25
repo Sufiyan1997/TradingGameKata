@@ -5,4 +5,9 @@ public class ConsoleUI implements UI{
     public void message(String msg) {
         System.out.println(msg);
     }
+
+    @Override
+    public int getMove() {
+        return 0;
+    }
 }
