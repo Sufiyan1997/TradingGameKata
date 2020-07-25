@@ -116,6 +116,6 @@ public class Player {
     }
 
     public String getStatus() {
-        return "";
+        return String.format("Name : %s\nAvailable Mana : %d\nManaslots : %d\nhealth : %d\nHand:%s", name, mana, manaSlots, health, Arrays.toString(hand.toArray()));
     }
 }
