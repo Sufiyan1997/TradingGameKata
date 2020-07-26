@@ -37,6 +37,12 @@ public class App
     }
 
     public Player getWinner() {
+        if ( activePlayer.hasLost() ) {
+            return inactivePlayer;
+        }
+        else if (inactivePlayer.hasLost()) {
+            return activePlayer;
+        }
         return null;
     }
 
