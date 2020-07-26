@@ -36,6 +36,10 @@ public class App
         return inactivePlayer;
     }
 
+    public Player getWinner() {
+        return null;
+    }
+
     public static void main( String[] args )
     {
         System.out.println( "Hello World!" );

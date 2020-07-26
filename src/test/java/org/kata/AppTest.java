@@ -35,4 +35,12 @@ public class AppTest
         assertEquals(app.getActivePlayer(), p1);
         assertEquals(app.getInactivePlayer(), p2);
     }
+
+    @Test
+    public void getWinnerTest()
+    {
+        when(p1.hasLost()).thenReturn(true);
+        when(p2.hasLost()).thenReturn(false);
+        assertEquals(app.getWinner(), p2);
+    }
 }
