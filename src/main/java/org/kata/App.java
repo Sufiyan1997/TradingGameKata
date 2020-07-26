@@ -57,7 +57,7 @@ public class App
             swapPlayers();
             return true;
         }
-        return false;
+        return true;
     }
 
     public static void main( String[] args )

@@ -61,4 +61,10 @@ public class AppTest
         assertEquals(activePlayerInitially, app.getInactivePlayer());
         assertEquals(inactivePlayerInitially, app.getActivePlayer());
     }
+
+    @Test
+    public void returnFalseWhenPlayerCannotPerformMove() {
+        when(p1.canPlayMove(3)).thenReturn(false);
+        assertFalse(app.processMove(3));
+    }
 }
