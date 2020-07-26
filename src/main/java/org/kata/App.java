@@ -61,6 +61,8 @@ public class App
         if(!activePlayer.canPlayMove(move)) {
             return false;
         }
+
+        activePlayer.performMove(move, inactivePlayer);
         return true;
     }
 
