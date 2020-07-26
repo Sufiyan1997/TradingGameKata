@@ -47,6 +47,9 @@ public class App
     }
 
     public void swapPlayers() {
+        Player tmp = activePlayer;
+        activePlayer = inactivePlayer;
+        inactivePlayer = tmp;
     }
 
     public static void main( String[] args )
