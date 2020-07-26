@@ -57,6 +57,10 @@ public class App
             swapPlayers();
             return true;
         }
+
+        if(!activePlayer.canPlayMove(move)) {
+            return false;
+        }
         return true;
     }
 
