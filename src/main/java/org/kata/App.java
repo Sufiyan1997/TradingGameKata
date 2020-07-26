@@ -53,6 +53,10 @@ public class App
     }
 
     public boolean processMove(int move) {
+        if (move == -1) {
+            swapPlayers();
+            return true;
+        }
         return false;
     }
 
