@@ -9,19 +9,31 @@ import org.kata.UI.UI;
 public class App 
 {
     private UI ui;
+
+    Player activePlayer, inactivePlayer;
+
     public App(Player p1, Player p2, int initialPlayer, UI ui) {
         this.ui = ui;
 
         p1.pickInitialHand();
         p2.pickInitialHand();
+
+        if (initialPlayer == 1) {
+            activePlayer = p1;
+            inactivePlayer = p2;
+        }
+        else {
+            activePlayer = p2;
+            inactivePlayer = p1;
+        }
     }
 
     public Player getActivePlayer() {
-        return null;
+        return activePlayer;
     }
 
     public Player getInactivePlayer() {
-        return null;
+        return inactivePlayer;
     }
 
     public static void main( String[] args )
