@@ -52,6 +52,10 @@ public class App
         inactivePlayer = tmp;
     }
 
+    public boolean processMove(int move) {
+        return false;
+    }
+
     public static void main( String[] args )
     {
         System.out.println( "Hello World!" );

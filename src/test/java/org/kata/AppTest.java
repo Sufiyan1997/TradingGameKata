@@ -52,4 +52,13 @@ public class AppTest
         assertEquals(activePlayerInitially, app.getInactivePlayer());
         assertEquals(inactivePlayerInitially, app.getActivePlayer());
     }
+
+    @Test
+    public void minusOneMoveShouldSwapPlayers() {
+        Player activePlayerInitially = app.getActivePlayer();
+        Player inactivePlayerInitially = app.getInactivePlayer();
+        app.processMove(-1);
+        assertEquals(activePlayerInitially, app.getInactivePlayer());
+        assertEquals(inactivePlayerInitially, app.getActivePlayer());
+    }
 }
