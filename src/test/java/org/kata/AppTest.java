@@ -43,4 +43,13 @@ public class AppTest
         when(p2.hasLost()).thenReturn(false);
         assertEquals(app.getWinner(), p2);
     }
+
+    @Test
+    public void swapPlayersTest() {
+        Player activePlayerInitially = app.getActivePlayer();
+        Player inactivePlayerInitially = app.getInactivePlayer();
+        app.swapPlayers();
+        assertEquals(activePlayerInitially, app.getInactivePlayer());
+        assertEquals(inactivePlayerInitially, app.getActivePlayer());
+    }
 }
