@@ -67,4 +67,11 @@ public class AppTest
         when(p1.canPlayMove(3)).thenReturn(false);
         assertFalse(app.processMove(3));
     }
+
+    @Test
+    public void callsPerformMoveOnPlayerWhenCanPerformMove() {
+        when(p1.canPlayMove(3)).thenReturn(true);
+        app.processMove(3);
+        verify(p1).performMove(3, p2);
+    }
 }
