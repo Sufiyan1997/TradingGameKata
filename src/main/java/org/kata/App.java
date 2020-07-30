@@ -1,5 +1,6 @@
 package org.kata;
 
+import org.kata.UI.ConsoleUI;
 import org.kata.UI.UI;
 
 /**
@@ -25,6 +26,39 @@ public class App
         else {
             activePlayer = p2;
             inactivePlayer = p1;
+        }
+    }
+
+    public void play() {
+        while (true) {
+            Player winner = getWinner();
+            if (winner != null) {
+                ui.message(winner.getName() + " Won");
+                break;
+            }
+
+            activePlayer.initializeTurn();
+
+            while (true) {
+
+                if (!activePlayer.canPlayAnyMove()) {
+                    ui.message(activePlayer.name + "can't play any card..swapping players");
+                    swapPlayers();
+                    break;
+                }
+
+                int move = ui.getMove();
+                boolean result = processMove(move);
+
+                if (!result) {
+                    ui.message("Can't perform this move");
+                }
+
+                if (move == -1) {
+                    break;
+                }
+            }
+
         }
     }
 
@@ -68,6 +102,10 @@ public class App
 
     public static void main( String[] args )
     {
-        System.out.println( "Hello World!" );
+        Player p1 = new Player("abc");
+        Player p2 = new Player("def");
+
+        App app = new App(p1, p2, 1, new ConsoleUI());
+        app.play();
     }
 }
