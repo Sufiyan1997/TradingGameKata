@@ -1,5 +1,7 @@
 package org.kata.UI;
 
+import org.kata.App;
+
 import java.util.Scanner;
 
 public class ConsoleUI implements UI{
@@ -23,5 +25,10 @@ public class ConsoleUI implements UI{
                 message("Invalid input");
             }
         }
+    }
+
+    @Override
+    public void showState(App app) {
+
     }
 }

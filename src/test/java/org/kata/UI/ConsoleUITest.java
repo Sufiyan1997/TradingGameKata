@@ -3,6 +3,8 @@ package org.kata.UI;
 import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
+import org.kata.App;
+import org.kata.Player;
 
 import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
@@ -46,5 +48,18 @@ public class ConsoleUITest {
         assertEquals(move, 5);
 
         System.setIn(sysIn);
+    }
+
+    @Test
+    public void showStateTest() {
+        Player p1 = new Player("abc");
+        Player p2 = new Player("def");
+        UI ui = new ConsoleUI();
+        App app = new App(p1, p2, 1, ui);
+        String expected = p1.getStatus()+"\n";
+        expected += p2.getStatus()+"\n";
+        expected += "It is abc's turn\n";
+        ui.showState(app);
+        assertEquals(baos.toString(), expected);
     }
 }
