@@ -29,6 +29,8 @@ public class ConsoleUI implements UI{
 
     @Override
     public void showState(App app) {
-
+        message(app.getActivePlayer().getStatus());
+        message(app.getInactivePlayer().getStatus());
+        message("It is "+app.getActivePlayer().getName()+"'s turn");
     }
 }
