@@ -35,6 +35,16 @@ public class PlayerTest {
     }
 
     @Test
+    public void bleedOutTest() {
+        List<Integer> initialDeck = new ArrayList<Integer>();
+        List<Integer> initialHand = new ArrayList<Integer>(Arrays.asList(1,2,3,4,5));
+        Player player = new Player(0, 0, 30, "abc", initialDeck, initialHand);
+        int initialHealth = player.getHealth();
+        player.drawCard();
+        assertEquals(player.getHealth(), initialHealth - 1);
+    }
+
+    @Test
     public void playerCanDrawIfHandNotFullAndDeckNotEmpty() {
         List<Integer> initialDeck = new ArrayList<Integer>(Arrays.asList(0,0,1,1,2,2,2,3,3,3,3,4,4,4,5,5,6,6,7,8));
         List<Integer> initialHand = new ArrayList<Integer>(new ArrayList<Integer>());
