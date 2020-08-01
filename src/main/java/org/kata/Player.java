@@ -53,10 +53,7 @@ public class Player {
     }
 
     public boolean canDrawCard() {
-        if (hand.size() == 5 || deck.isEmpty()) {
-            return false;
-        }
-        return true;
+        return !deck.isEmpty();
     }
 
     public boolean drawCard() {
@@ -64,7 +61,10 @@ public class Player {
             return false;
         }
         int index = random.nextInt(deck.size());
-        hand.add(deck.remove(index));
+        int card = deck.remove(index);
+        if(hand.size() < 5) {
+            hand.add(card);
+        }
         return true;
     }
 
