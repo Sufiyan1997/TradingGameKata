@@ -52,10 +52,6 @@ public class Player {
         return hand;
     }
 
-    public boolean canDrawCard() {
-        return !deck.isEmpty();
-    }
-
     public boolean drawCard() {
         if (deck.size() == 0) {
             health--;
