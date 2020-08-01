@@ -57,8 +57,9 @@ public class Player {
     }
 
     public boolean drawCard() {
-        if (!canDrawCard()) {
-            return false;
+        if (deck.size() == 0) {
+            health--;
+            return true;
         }
         int index = random.nextInt(deck.size());
         int card = deck.remove(index);
