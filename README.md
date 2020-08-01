@@ -17,5 +17,6 @@ Rules for the game can be found [here](https://codingdojo.org/kata/TradingCardGa
 #### Commit messages
  - `FT` failing test
  - `PT` code added to pass test
+ - `REF` Refactor
  - `OTHER` everything else
 
