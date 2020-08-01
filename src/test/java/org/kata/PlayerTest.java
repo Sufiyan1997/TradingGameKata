@@ -1,5 +1,6 @@
 package org.kata;
 
+import org.junit.Before;
 import org.junit.Test;
 
 import java.util.ArrayList;
@@ -10,6 +11,13 @@ import java.util.List;
 import static org.junit.Assert.*;
 
 public class PlayerTest {
+
+    private List<Integer> defaultDeck;
+    @Before
+    public void setUp() throws Exception {
+        this.defaultDeck = new ArrayList<Integer>(Arrays.asList(0,0,1,1,2,2,2,3,3,3,3,4,4,4,5,5,6,6,7,8));
+    }
+
     @Test
     public void playerInitializationTest() {
         Player player = new Player("abc");
@@ -18,13 +26,13 @@ public class PlayerTest {
         assertEquals(player.getMana(), 0);
         assertEquals(player.getManaSlots(), 0);
 
-        List<Integer> initialDeck = new ArrayList<Integer>(Arrays.asList(0,0,1,1,2,2,2,3,3,3,3,4,4,4,5,5,6,6,7,8));
+        List<Integer> initialDeck = this.defaultDeck;
         assertTrue(player.getDeck().equals(initialDeck));
     }
 
     @Test
     public void overloadTest() {
-        List<Integer> initialDeck = new ArrayList<Integer>(Arrays.asList(0,0,1,1,2,2,2,3,3,3,3,4,4,4,5,5,6,6,7,8));
+        List<Integer> initialDeck = this.defaultDeck;
         List<Integer> initialHand = new ArrayList<Integer>(Arrays.asList(1,2,3,4,5));
         int initialDeckSize = initialDeck.size();
         int initialHandSize = initialHand.size();
@@ -52,7 +60,7 @@ public class PlayerTest {
         assertEquals(player.getHand().size(), 1);
         assertEquals(player.getDeck().size(), 19);
 
-        List<Integer> initialDeck = new ArrayList<Integer>(Arrays.asList(0,0,1,1,2,2,2,3,3,3,3,4,4,4,5,5,6,6,7,8));
+        List<Integer> initialDeck = this.defaultDeck;
         int drawnCard = player.getHand().get(0);
         player.getDeck().add(drawnCard);
         Collections.sort(player.getDeck());
@@ -90,7 +98,7 @@ public class PlayerTest {
 
     @Test
     public void hasLostTest() {
-        List<Integer> initialDeck = new ArrayList<Integer>(Arrays.asList(0,0,1,1,2,2,2,3,3,3,3,4,4,4,5,5,6,6,7,8));
+        List<Integer> initialDeck = this.defaultDeck;
         List<Integer> initialHand = new ArrayList<Integer>(Arrays.asList(1,2,3,4,5));
         Player player = new Player(0, 0, 0, "abc", initialDeck, initialHand);
         assertTrue(player.hasLost());
@@ -100,7 +108,7 @@ public class PlayerTest {
 
     @Test
     public void cannotPerformMoveIfHandIsEmpty() {
-        List<Integer> initialDeck = new ArrayList<Integer>(Arrays.asList(0,0,1,1,2,2,2,3,3,3,3,4,4,4,5,5,6,6,7,8));
+        List<Integer> initialDeck = this.defaultDeck;
         List<Integer> initialHand = new ArrayList<Integer>();
         Player player = new Player(0, 0, 30, "abc", initialDeck, initialHand);
         assertFalse(player.canPlayAnyMove());
@@ -108,7 +116,7 @@ public class PlayerTest {
 
     @Test
     public void cannotPerformMoveIfNotSufficientMana() {
-        List<Integer> initialDeck = new ArrayList<Integer>(Arrays.asList(0,0,1,1,2,2,2,3,3,3,3,4,4,4,5,5,6,6,7,8));
+        List<Integer> initialDeck = this.defaultDeck;
         List<Integer> initialHand = new ArrayList<Integer>(Arrays.asList(5));
         Player player = new Player(3, 3, 30, "abc", initialDeck, initialHand);
         assertFalse(player.canPlayAnyMove());
@@ -124,7 +132,7 @@ public class PlayerTest {
 
     @Test
     public void cannotPerformMoveIfInsufficientMana() {
-        List<Integer> initialDeck = new ArrayList<Integer>(Arrays.asList(0,0,1,1,2,2,2,3,3,3,3,4,4,4,5,5,6,6,7,8));
+        List<Integer> initialDeck = this.defaultDeck;
         List<Integer> initialHand = new ArrayList<Integer>(Arrays.asList(0,1,2));
         Player player = new Player(1, 3, 30, "abc", initialDeck, initialHand);
         assertFalse(player.canPlayMove(2));
@@ -132,7 +140,7 @@ public class PlayerTest {
 
     @Test
     public void performMoveTest() {
-        List<Integer> initialDeck = new ArrayList<Integer>(Arrays.asList(0,0,1,1,2,2,2,3,3,3,3,4,4,4,5,5,6,6,7,8));
+        List<Integer> initialDeck = this.defaultDeck;
         List<Integer> initialHand = new ArrayList<Integer>(Arrays.asList(0,1,2));
 
         Player player = new Player(3, 3, 30, "abc", initialDeck, initialHand);
