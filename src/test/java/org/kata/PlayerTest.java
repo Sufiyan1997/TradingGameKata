@@ -22,6 +22,17 @@ public class PlayerTest {
         assertTrue(player.getDeck().equals(initialDeck));
     }
 
+    @Test
+    public void overloadTest() {
+        List<Integer> initialDeck = new ArrayList<Integer>(Arrays.asList(0,0,1,1,2,2,2,3,3,3,3,4,4,4,5,5,6,6,7,8));
+        List<Integer> initialHand = new ArrayList<Integer>(Arrays.asList(1,2,3,4,5));
+        int initialDeckSize = initialDeck.size();
+        int initialHandSize = initialHand.size();
+        Player player = new Player(0, 0, 30, "abc", initialDeck, initialHand);
+        player.drawCard();
+        assertEquals(player.getHand().size(), initialHandSize);
+        assertEquals(player.getDeck().size(), initialDeckSize - 1);
+    }
 
     @Test
     public void playerCanDrawIfHandNotFullAndDeckNotEmpty() {
