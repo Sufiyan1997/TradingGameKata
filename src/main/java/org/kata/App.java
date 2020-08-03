@@ -41,6 +41,10 @@ public class App
 
             while (true) {
 
+                ui.message("\n\n");
+                ui.message("----CURRENT STATE----");
+                ui.showState(this);
+                ui.message("\n\n");
                 if (!activePlayer.canPlayAnyMove()) {
                     ui.message(activePlayer.name + "can't play any card..swapping players");
                     swapPlayers();
